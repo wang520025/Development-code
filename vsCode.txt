@@ -1,0 +1,26 @@
+1.Art Template Helper 0.0.4
+2.Chinese (Simplified) Language Pack for Visual Studio Code 1.40.2
+3.cssrem 0.1.0
+4.Easy LESS 1.6.3
+5.ESLint 1.9.1
+6.Git History 0.6.5
+7.One Dark Pro 2.28.3
+8.open in browser 2.0.0
+9.Path Intellisense 1.4.2
+10.Prettier - Code formatter 3.20.0
+11.React-Native/React/Redux snippets for es6/es7 2.0.4
+12.Vetur 0.23.0
+13.Vue 2 Snippets 0.1.11
+14.Vue VSCode Snippets 1.9.0
+
+
+
+
+
+
+
+
+
+
+
+
