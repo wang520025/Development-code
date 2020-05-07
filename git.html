@@ -1,0 +1,127 @@
+Git环境搭建
+一，Git下载安装
+1，下载git安装包，选择默认配置。
+2，安装完后，右键会出现`git`菜单，选中 `Git Bash Here`，弹出命令窗口。
+3，输入命令 `git --version`  查看`git`版本。
+二，Git 使用前配置
+1，配置提交人姓名：`git config --global user.name 提交人姓名`。
+2，配置提交人姓名：`git config --global user.email 提交人邮箱`。
+3，查看git配置信息：`git config --list` 。
+三，Git使用
+    1）提交文件到Git仓库
+        1. git init` 初始化git仓库
+        2. `git status` 查看文件状态
+        3. `git add 文件列表` 追踪文件
+        4. `git commit -m 提交信息`  向仓库中提交代码
+        5. `git log` 查看提交记录
+    2）撤销
+        1. git checkout 文件    用暂存区中的文件覆盖工作目录中的文件
+        2. git rm --cached 文件名    将文件从暂存区中删除
+        3. git reset --hard 提交ID    恢复git仓库中指定版本的项目
+    3）Git分支
+      一，分支相关命令
+             1. git branch                  查看分支
+             2. git branch  分支名称  创建分支
+             3. git checkout 分支名称          切换分支
+             4. git merge 来源分支       合并分支
+             5. git branch -d 分支名称   删除分支（分支被合并后才允许删除）（-D 强制删除）
+     二，暂时保存更改
+         1. 存储临时改动： git stash
+         2. 恢复改动： git stash pop
+四，注册Github账号
+       1). 将本地仓库推送到远程仓库
+              1. git remote add 远程仓库地址别名 远程仓库地址
+              2. git push -u 远程仓库地址或别名 本地分支名称:
+                   -u 记住推送地址及分支，下次推送只需要输入git push即可
+五，多人协作开发
+     1)A在自己的计算机中创建本地仓库
+           git init   创建本地仓库
+           git add index.html  添加一个文件到暂存区
+           git commit -m A程序员第一次提交 
+      2)A在github中创建远程仓库
+      3)A将本地仓库推送到远程仓库
+           git push https://github.com/自己对应的仓库链接
+      4)给远程仓库配置别名
+           git remote add origin https://github.com/自己对应的仓库链接
+           git push origin master
+           git push -u origin master
+      5)当我们第一次登录了github，那么window会默认帮我们保存用户名跟密码，保存的位置如下: 控制面板/所有控制面板项/凭据管理器
+      6)B克隆远程仓库到本地进行开发
+          git clone 远程仓库地址
+      7)B将本地仓库中开发的内容推送到远程仓库
+             git add index.html 
+             git commit -m 
+            此时推送到服务器的时候，需要程序员A在github上面添加程序员B 
+      8)程序员A在github上面添加程序员B 
+             1.程序员A进入github官网，点击 settings，点击Collaborators
+             2.点击 add collaborator 就会被添加进去
+             3.把邀请链接发送给程序员B，程序员B需要登录github，对链接进行访问
+                      需要在凭据里面把程序员A的账号进行删除
+                      可以在命令行里面进行push了
+                      之前克隆了远程仓库，就把别名配置一起进行了克隆
+                      git push origin master 
+       9)A将远程仓库中的最新内容拉取到本地
+              git pull origin master
+       10)冲突的解决
+六，Git相关命令整理
+git config --global user.name  //配置姓名
+git config --global user.email  //配置邮箱
+git config --list  //查看配置信息
+git init 	//初始化本地仓库
+git status 	 //查看文件状态
+git add 文件名 	//添加某个文件到暂存区，如果写 . 代表当前文件夹下所有的文件、
+git commit -m 日志说明   //提交到本地仓库
+git log    //查看提交记录
+git checkout 文件名    //撤销，让暂存区文件覆盖工作区间文件
+git rm --cached 文件名   	//在暂存区移除相应文件
+git reset --hard 提交ID  	//恢复到指定版本
+git branch      //查看分支
+git branch develop  //创建分支
+git checkout 分支名  //切换分支
+git merge  //合并分支
+git branch -d 分支名称  //删除分支
+git clone 地址 //克隆远程仓库
+git push 地址 分支名  //往服务器推送
+git pull 地址  //将服务器代码拉取到本地
+git remote add 名称 地址 //给地址取别名
+git push -u origin master  //-u的参数让git记录信息，下次只需要 git push 就能进行提交
+ssh-keygen  //生成一对密钥
+--------------------------------------------------------
+1.git remote -v   查询远程仓库地址别名
+2.git push -u origin master 第一次推送到 远程仓库（origin）
+3.git push -u origin login 第一次推送到 远程仓库（origin）（在login 副分支上） ； 远程仓库新建一个login 分支
+4.git checkout -b 分支名   创建分支
+5.git config --list  查询
+6.git config --global user.name "wang520025"
+7.git config --global user.email "2321382408@qq.com"
+8.clear清屏
+--------------------
+我的Github账号:
+name:  wang520025
+email:  2321382408@qq.com
+password:  wang13477804047
+-----------------------
+Vue脚手架可以快速生成Vue项目基础的架构。
+A.安装3.x版本的Vue脚手架：
+    npm install -g @vue/cli
+    vue -V 看看能不能出现版本号  才表示安装成功
+B.基于3.x版本的脚手架创建Vue项目：
+    1).使用命令创建Vue项目
+        命令：vue create my-project
+        选择Manually select features(选择特性以创建项目)
+        勾选特性可以用空格进行勾选。
+        是否选用历史模式的路由：n
+        ESLint选择：ESLint + Standard config
+        何时进行ESLint语法校验：Lint on save
+        babel，postcss等配置文件如何放置：In dedicated config files(单独使用文件进行配置)
+        是否保存为模板：n
+        使用哪个工具安装包：npm
+--------------------------------
+1.安装 Node，直接下一步...
+2.如何验证是否安装成功？
+     node -v
+     npm -v
+3.安装 nrm
+通过 npm install nrm -g
+     nrm -V
+     nrm ls
