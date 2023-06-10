@@ -19,3 +19,32 @@ filter: brop-shadow(0 0 10px #fff); (针对这个区域里面的像素点设置�
 
 平滑的滚动
 scroll-behavior: smooth;
+
+逐帧动画
+animation: 动画名称 1s infinite
+animation: 动画名称 1s steps(12) infinite
+
+动画暂停和恢复
+animation-play-state: running;  //动画中
+animation-play-state: paused;   //动画暂停和恢复
+
+粘性定位
+div{
+    position: sticky;
+    top: 0;  依次往祖先元素找设置了overflow属性的元素，跟它的相对距离，父元素离开会带走粘性定位元素
+}
+
+文本溢出
+单行
+    {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+多行
+    {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+    }
