@@ -48,3 +48,16 @@ div{
         -webkit-line-clamp: 5;
         -webkit-box-orient: vertical;
     }
+
+元素的尺寸
+clientWidth、clientHeight
+边框以内的尺寸,四舍五入的整数(不含滚动条)
+offsetWidth、offsetHeight
+布局尺寸,四舍五入的整数(包含边框,包含滚动条)
+scrollWidth、scrollHeight
+内容尺寸,四舍五入的整数(包含溢出的部分)
+不需要滚动时等同于clientWidth
+getBoundingClientRect()
+最小矩形尺寸,含小数
+dom.getBoundingClientRect()
+和scrollWidth、scrollHeight一样,不过包含小数,更精确
