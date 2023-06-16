@@ -1,7 +1,7 @@
 // 防抖函数
 function debounce(fn, delay) {
   var timerId;
-  return function() {
+  return function () {
     clearTimeout(timerId);
     timerId = setTimeout(fn, delay);
   };
@@ -19,7 +19,7 @@ function wheelHandler(e) {
 var loading = document.querySelector(".loading");
 // 建立观察者
 var ob = new IntersectionObserver(
-  function(entries) {
+  function (entries) {
     // entries： 重叠的元素数组
     var entry = entries[0];
     if (entry.isIntersecting) {
@@ -37,13 +37,13 @@ ob.observe(loading);
 
 // 失活页面的计时器问题
 // visibilitychange:页面可见性发生变化的时候触发这个事件
-document.addEventListener("visibilitychange", function() {
+document.addEventListener("visibilitychange", function () {
   console.log(document.visibilityState); //'hidden':页面隐藏 'visible':页面显示
 });
 //浏览器切换页面的时候,计时器的时间间隔小于1秒的会被重置为1秒(谷歌浏览器是1秒,不同浏览器重置的时间不一样)
 
 // dom获取鼠标位置
-dom.addEventListener("click", function(e) {
+dom.addEventListener("click", function (e) {
   // e.x === e.clientX 鼠标到视口左侧的距离
   // e.pageX 鼠标到页面左侧的距离
   // e.screenX 鼠标到屏幕左侧的距离
@@ -64,16 +64,16 @@ dom.addEventListener(
 );
 
 // 鼠标和键盘事件的常见问题
-dom.onmousedown = function(e){
+dom.onmousedown = function (e) {
   console.log("鼠标按下事件")
 }
-dom.onmouseup = function(e){
+dom.onmouseup = function (e) {
   console.log("鼠标抬起事件，一般注册在window上面，因为如果注册在dom上，按下鼠标移出dom后抬起鼠标，不会触发事件")
 }
-window.onkeydown = function(e){
+window.onkeydown = function (e) {
   console.log("键盘按住不放，键盘按下事件会一直触发，可以用Set变量保存状态，判断是否需要一直触发事件")
 }
-window.onkeyup = function(e){
+window.onkeyup = function (e) {
   console.log("鼠标抬起事件")
 }
 // 函数签名
@@ -96,3 +96,6 @@ function fn() {
 }
 fn()  // 普通函数调用
 new fn() // 构造函数调用
+
+// 滚动元素到可视区域
+dom.scrollIntoView({ behavior: "smooth", block: "center" })
