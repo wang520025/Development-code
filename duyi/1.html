@@ -71,3 +71,18 @@ dom.getBoundingClientRect()
         U+200C
         U+200E
         U+200F
+
+磨砂玻璃 backdrop-filter
+模糊背后的元素
+backdrop-filter: grayscale(1)
+
+
+<!-- css变量 -->
+<div class="item"></div>
+<script>
+const item = document.querySelector('.item')
+item.style.setProperty('--w', 300 + 'px')
+</script>
+.item{
+    transform: translateX(calc(var(--w) - 100%))
+}

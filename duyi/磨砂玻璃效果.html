@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>磨砂玻璃效果</title>
+</head>
+<body>
+    <div class="modal"></div>
+</body>
+<style>
+    body{
+        background: url(https://fudezao.oss-cn-qingdao.aliyuncs.com/statics/uper/202005/27/5ece199ec4dd4.png) no-repeat center/cover;
+        height: 100vh;
+        margin: 0;
+    }
+    .modal{
+        position: fixed;
+        width: 100%;
+        right: 0;
+        height: 100%;
+        top: 0;
+        transition: 2s;
+        border-left: 5px solid #333;
+        backdrop-filter: grayscale(1)
+    }
+    body:hover .modal{
+        width: 0;
+    }
+</style>
+</html>

@@ -11,3 +11,27 @@ export function hasChanged(x, y) {
     // 排除NaN NaN
   }
 }
+
+// 利用自定义ref实现防抖
+import { customRef } from 'vue';
+function debounceRef(valur, delay = 1000) {
+  let timer;
+  return customRef((track, trigger) => {
+    return {
+      get() {
+        //依赖收集track()
+        track();
+        return value
+      },
+      set(val) {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          // 派发更新trigger()
+          value = val;
+          trigger()
+        }, delay)
+      }
+    }
+  })
+}
+const text = debounceRef('')

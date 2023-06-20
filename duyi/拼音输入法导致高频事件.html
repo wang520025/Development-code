@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拼音输入法导致高频事件</title>
+</head>
+<body>
+    <script>
+        var inp = document.querySelector('input');
+        let isComposite = false;
+        function search(){
+            console.log('搜索:' + inp.value);
+        }
+        inp.addEventListener('input', function(){
+            if(!isComposite){
+                console.log('input');
+                search()
+            }
+        })
+        // 多个按键输入对应一个文字——合成
+        inp.addEventListener('compositionstart', function(){
+            // 合成开始
+            console.log('start');
+            isComposite = true;
+        })
+        inp.addEventListener('compositionend', function(){
+            // 合成结束
+            console.log('end');
+            isComposite = false
+            search()
+        })
+    </script>
+</body>
+</html>

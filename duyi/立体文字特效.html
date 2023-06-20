@@ -10,6 +10,7 @@
 
 <body>
     <h1>This is 3D TEXT</h1>
+    <div class="shadow">SHADOW</div>
 </body>
 <style>
     * {
@@ -18,8 +19,8 @@
     }
 
     h1 {
-        height: 100vh;
-        line-height: 100vh;
+        height: 50vh;
+        line-height: 50vh;
         text-align: center;
         color: #fff;
         background-color: rgb(0, 128, 122);
@@ -27,6 +28,27 @@
         user-select: none;
         font-size: 5em;
         text-shadow: -1px 1px #bbb, -2px 2px #bbb, -3px 3px #bbb, -4px 4px #bbb, -5px 5px #bbb, -12px 12px 3px #666;
+    }
+    body{
+        background-color: #aaa;
+    }
+    .shadow{
+        background-color: transparent;
+        color: #fff;
+        height: 50vh;
+        line-height: 50vh;
+        text-align: center;
+        font-size: 120px;
+        font-weight: 700;
+    }
+    .shadow::before{
+        content: 'SHADOW';
+        position: absolute;
+        color: #000;
+        transform: translate(-50px, 25px) scaleY(0.5) skew(50deg);
+        z-index: -1;
+        filter: blur(5px);
+        -webkit-mask-image: linear-gradient(transparent, #000)
     }
 </style>
 
