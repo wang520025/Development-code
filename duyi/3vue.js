@@ -35,3 +35,16 @@ function debounceRef(valur, delay = 1000) {
   })
 }
 const text = debounceRef('')
+
+// 自动注入Less全局变量(vue.config.js)
+const {defineConfig} = require('@vue/cli-service');
+module.exports = defineConfig({
+  transpileDependencies: true,
+  css: {
+    loaderOptions:{
+      less:{
+        additionalData: '@import url("~@/var.less")'
+      }
+    }
+  }
+})

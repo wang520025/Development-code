@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>封装resize指令</title>
+</head>
+<body>
+    <div v-size-ob="handleSizeChange"></div>
+    <script>
+        function handleSizeChange(size){
+            console.log(size)
+        }
+    </script>
+    <script>
+        const map = new WeakMap();
+        const ob = new ResizeObserver((entries) => {
+            for(const entry of entries){
+                const hander = map.get(entry.target);
+                if(hander){
+                    const box = entry.borderBoxSize[0];
+                    hander({
+                        width: box.inlineSize,
+                        height: box.blockSize,
+                    })
+                }
+            }
+        })
+        export default{
+            mounted(el, binding){
+                // 监视尺寸变化
+                ob.observe(el);
+                map.set(el, binding.value)
+            },
+            unmounted(){
+                // 取消监听
+                ob.unobserve(el);
+            }
+        }
+    </script>
+</body>
+</html>

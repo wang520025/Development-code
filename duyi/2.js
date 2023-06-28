@@ -142,3 +142,13 @@ document.addEventListener('copy', (e) => {
   e.clipboardData.setData('text/plain','不准复制，打钱！')
   console.log(e.target)
 })
+
+// 图片转base64
+const inp = document.querySelector('input');
+inp.onchange = function(){
+  const reader = new FileReader();
+  reader.onload = function(e){
+    console.log(e.target.result);  //base64
+  }
+  reader.readAsDataURL(this.files[0])
+}
