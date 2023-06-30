@@ -152,3 +152,8 @@ inp.onchange = function(){
   }
   reader.readAsDataURL(this.files[0])
 }
+
+// 资源提示符
+// <script></script>  async defer
+// <link href="" rel="prefetch" />
+// <link href="" rel="preload" />
