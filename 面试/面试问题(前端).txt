@@ -1,0 +1,70 @@
+1.权限管理
+2.10号字体
+	transform: scale(0.83);
+3，layout
+4. $next.tick
+5.vue和react
+6.双向绑定的其它指令
+7.dom 和dom事件
+DOM即文档对象模型，是W3C制定的标准接口规范，是一种处理HTML和XML文件的标准API。DOM提供了对整个文档的访问模型，将文档作为一个树形结构，树的每个结点表示了一个HTML标签或标签内的文本项。DOM树结构精确地描述了HTML文档中标签间的相互关联性。
+dom事件：JavaScript与HTML之间的交互是通过事件实现的。事件就是文档或浏览器窗口中发生的一些特定的交互瞬间。
+8.动态路由
+9.打包流程
+10.多环境
+11.在请求之外用到promise
+12.严格模式下和非严格模式下this指向
+           严格和非严格最大的区别是有没有默认绑定
+           在严格模式下任何函数的调用都必须显示的指定，否则就是 undefined
+13.元素被拖拽直到放置在指定区域的完整过程中依次触发了哪些拖放事件?
+拖拽发生过程：dragstart->drag->dragenter->dragover->dragleave/drop->dragend
+14.单页面应用(hash,history)和多页面应用
+15.for循环，foreach
+16.keep-alive
+17.重排(transform)
+       普通文档流就是默认复合图层，创建新的复合图层就是第二种优化方式
+18.cookie的作用域，js清除
+19.定时器的时间准确吗？
+20.defer与async
+defer与async的区别是：前者要等到整个页面正常渲染结束，才会执行；后者一旦下载完，渲染引擎就会中断渲染，执行这个脚本以后，再继续渲染。一句话，defer是“渲染完再执行”，async是“下载完就执行”。另外，如果有多个defer脚本，会按照它们在页面出现的顺序加载，而多个async脚本是不能保证加载顺序的。
+21. 常见兼容性问题？
+png24位的图片在iE6浏览器上出现背景，解决方案是做成PNG8.也可以引用一段脚本处理.
+浏览器默认的margin和padding不同。解决方案是加一个全局的*{margin:0;padding:0;}来统一。
+IE6双边距bug:块属性标签float后，又有横行的margin情况下，在ie6显示margin比设置的大。
+浮动ie产生的双倍距离（IE6双边距问题：在IE6下，如果对元素设置了浮动，同时又设置了margin-left或margin-right，margin值会加倍。）
+ 
+ie和ff都存在，相邻的两个div的margin-left和margin-right不会重合，但是margin-top和margin-bottom却会发生重合，取两个值中的较大者。
+解决方法，养成良好的代码编写习惯，同时采用margin-top或者同时采用margin-bottom。
+22.原型和原型链
+在原型链中，有两个特殊的对象，Object和Function。
+所有的构造函数的__proto__都指向Function对象的原型（即Function.prototype），就连Function对象本身的__proto__属性也指向Function.prototype。
+所有原型对象的__proto__属性都指向Object对象的原型（Object.prototype）。
+Object.prototype.proto = null。
+23.什么情况下不能用箭头函数
+24.keep-alive的原理
+25.$nextTick的原理
+26.为啥template中一定要加div来包裹
+27.中断请求怎么实现？
+28.页面加载过程中触发哪些事件
+29.vue路由参数变化页面不刷新，path?id=
+30.微信小程序分包原理
+31.文件分片上传
+32.数据大屏 
+33.富文本编辑器防止xss攻击
+34.离线打包
+35.接口加密方式
+36.线上项目debugger
+37.浏览器渲染机制
+38.v-on绑定多个事件
+39.小程序setdata,vue,react的区别
+40.vue路由模式
+41.vue路由钩子
+42.盒子居中，品子布局
+43.内置对象
+44.css继承属性
+45.小程序运行原理
+46.null 和 undefind的区别
+47.xml 和 json 的区别
+48.img标签加alt、title(区别)
+
+
+----------难点和亮点————
