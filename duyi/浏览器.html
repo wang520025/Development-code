@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浏览器</title>
+</head>
+
+<body>
+    <h1>
+        Detect Browser or Tab Closing Event in JavaScript
+    </h1>
+    <p>
+        The beforeunload event is fired just
+        before the closing the tab or browser
+        window or reloading the page.
+        In modern web browsers, you may have
+        to interate with the web
+        page to get the confirmation dialog.
+    </p>
+    <form>
+        <textarea placeholder="Write few words here to trigger an
+        interaction">
+ 		</textarea>
+    </form>
+    <script>
+        window.addEventListener('beforeunload', function (e) {
+            e.preventDefault();
+            e.returnValue = '';
+        });
+    </script>
+</body>
+
+</html>
+
+
+<!-- 拦截浏览器后退 -->
+<!-- export default {
+    data() {
+        return {};
+    },
+    mounted() {
+        history.pushState(null, document.title, location.href);
+        window.addEventListener('popstate', function (event) {
+            history.pushState(null, document.title, location.href);
+        });
+    },
+    beforeRouteLeave(to, from, next) {
+        // 阻止用户离开当前页面
+        if (confirm('退出当前页面，你更改的内容将会丢失')) {
+           console.log('确定-');
+           next(true);
+        } else {
+           console.log('取消-');
+           next(false);
+        }
+    },
+}; -->

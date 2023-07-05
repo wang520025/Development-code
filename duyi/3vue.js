@@ -48,3 +48,18 @@ module.exports = defineConfig({
     }
   }
 })
+
+
+// Axios在返回status是多少时，调用then方法?在defaults.js文件中找到了答案
+//        validateStatus: function validateStatus(status) {
+//           return status >= 200 && status < 300;
+//        }
+// 也就是说在我们没有设置adapter的validateStatus方法的时候，status在200到300之间会调用then方法，或者准确点说叫resolve方法，通过公司项目的实践，亲测成功。
+
+// vuex注意：
+//      // 状态, 全局挂载（main.js)
+//     Vue.prototype.$store = store;
+// vue项目根目录，@/表示：src/
+// vue无法加载文件C:\Users\Administrator\AppData\Roaming\npm\vue.ps1因为在此系统上禁止运行脚本……解决办法?
+//   1)管理员身份运行PowerShell（命令提示符，来源于Linux的命令提示符也叫Shell）
+//   2)执行：set-ExecutionPolicy RemoteSigned （签名或运行这些脚本）
