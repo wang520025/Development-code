@@ -68,3 +68,8 @@ Object.prototype.proto = null。
 
 
 ----------难点和亮点————
+
+
+-----------优化-------------------
+1.将小于某个大小的图片转化成 data URI 形式（Base64 格式）
+2.image-minimizer-webpack-plugin   用来压缩图片的插件

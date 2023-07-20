@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="select">
+        <option value="dark">暗色</option>
+        <option value="light">亮色</option>
+        <option value="os">系统</option>
+    </select>
+    <script>
+        const match = matchMedia('(prefers-color-scheme: dark)')
+        select.onchange = e => {
+            // console.log(e.target.value)
+            if (e.target.value === 'os') {
+                followOS();
+                match.addEventListener('change', followOS)
+            } else {
+                document.documentElement.dataset.theme = e.target.value;
+                match.removeEventListener('change', followOS)
+            }
+        }
+
+        function followOS() {
+            if (match.matches) {
+                document.documentElement.dataset.theme = 'dark';
+            } else {
+                document.documentElement.dataset.theme = 'light';
+            }
+        }
+    </script>
+</body>
+<style>
+    /* 暗色主题 */
+    html[data-theme='dark'] {
+        --text-color: #fff;
+        --bg1: #102128;
+        --bg2: #2d5567;
+    }
+
+    /* 默认亮色主题 */
+    :root {
+        --text-color: #333;
+        --bg1: #c7ffdd;
+        --bg2: #fbd988;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--bg1);
+    }
+</style>
+
+</html>

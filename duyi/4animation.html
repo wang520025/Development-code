@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div class="bar ball1"></div>
+    <div class="bar ball2"></div>
+    <div class="bar ball3"></div> -->
+
+    <div class="container">
+        <div class="ball"></div>
+        <div class="eye"></div>
+        <input type="range" value="0" min="0" max="1" step="0.01" />
+    </div>
+    <script>
+        const inp = document.querySelector('input')
+        const container = document.querySelector('.container')
+        container.style.setProperty('--delay', `-${inp.value}s`)
+        inp.oninput = function () {
+            container.style.setProperty('--delay', `-${inp.value}s`)
+        }
+    </script>
+</body>
+<!-- 利用贝塞尔曲线实现动画 -->
+<style>
+    .bar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #f45;
+        margin: 200px auto;
+    }
+
+    .bar:nth-child(2) {
+        background-color: #00f;
+    }
+
+    .bar:nth-child(3) {
+        background-color: #0f0;
+    }
+
+    @property --x {
+        syntax: '<length>';
+        initial-value: 0px;
+        inherits: false;
+    }
+
+    @property --y {
+        syntax: '<length>';
+        initial-value: 0px;
+        inherits: false;
+    }
+
+    .ball1 {
+        transform: translate(var(--x), var(--y));
+        animation: x 2s, y 1s;
+        animation-timing-function: cubic-bezier(0.5, -800, 0.5, 800);
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes x {
+        to {
+            --x: 1px;
+        }
+    }
+
+    @keyframes y {
+        to {
+            --y: 0.1px;
+        }
+    }
+
+    @property --r2 {
+        syntax: '<angle>';
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --x2 {
+        syntax: '<length>';
+        initial-value: 0px;
+        inherits: false;
+    }
+
+    .ball2 {
+        transform: rotate(var(--r2)) translate(var(--x2));
+        animation: x2 2s, r2 8s;
+        animation-timing-function: cubic-bezier(0.5, -800, 0.5, 800);
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes x2 {
+        to {
+            --x2: 1px;
+        }
+    }
+
+    @keyframes r2 {
+        to {
+            --r2: 1deg;
+        }
+    }
+
+    @property --r3 {
+        syntax: '<angle>';
+        initial-value: 0deg;
+        inherits: false;
+    }
+
+    @property --x3 {
+        syntax: '<length>';
+        initial-value: 0px;
+        inherits: false;
+    }
+
+    .ball3 {
+        transform: rotate(var(--r3)) translate(var(--x3));
+        animation: x3 2s cubic-bezier(0.5, -800, 0.5, 800), r3 4s linear;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes x3 {
+        to {
+            --x3: 1px;
+        }
+    }
+
+    @keyframes r3 {
+        to {
+            --r3: 360deg;
+        }
+    }
+</style>
+/* 利用延迟实现动画 */
+<style>
+    .ball {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: red;
+        margin-bottom: 50px;
+        animation: move 1s var(--delay) linear forwards paused;
+    }
+
+    @keyframes move {
+        50% {
+            transform: translate(100px) scale(1.5);
+        }
+
+        100% {
+            transform: translate(200px) scale(1);
+        }
+    }
+</style>
+<style>
+    body {
+        background: #000;
+    }
+
+    .container {
+        --delay: 0;
+        padding-top: 300px;
+    }
+
+    .eye {
+        position: absolute;
+        top: 0;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 50px;
+        background: #fff;
+        animation: eyeChange 1s var(--delay) linear forwards paused;
+    }
+
+    @keyframes eyeChange {
+        0% {
+            clip-path: polygon(0 70%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        100% {
+            clip-path: polygon(0 0%, 100% 0, 100% 100%, 0 100%);
+        }
+    }
+</style>
+
+</html>
