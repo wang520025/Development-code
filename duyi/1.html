@@ -90,3 +90,14 @@ item.style.setProperty('--w', 300 + 'px')
 <!-- vmin和vmax -->
 vmin: 取vw和vh较小的值
 vmax: 取vw和vh较大的值
+
+
+<!-- 实现高度自动的过渡 -->
+.detail{
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: 0.5s;
+}
+.btn:hover .detail{
+    grid-template-rows: 1fr;
+}
