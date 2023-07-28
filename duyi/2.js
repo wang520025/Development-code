@@ -157,3 +157,10 @@ inp.onchange = function(){
 // <script></script>  async defer
 // <link href="" rel="prefetch" />
 // <link href="" rel="preload" />
+
+
+// 静态资源的动态访问
+// const url = computed(() => {
+// const obj = new URL(`./assets/${name.value}.jpj`, import.meta.url);
+// return obj.pathname;
+// })
