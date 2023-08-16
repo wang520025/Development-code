@@ -87,7 +87,7 @@ window.onkeyup = function (e) {
  * @param {Number} n 待判断的数
  * @return {Boolean} 判断的结果
  */
-function isPrime(n) {}
+function isPrime(n) { }
 
 // 函数二义性
 function fn() {
@@ -114,9 +114,9 @@ class Example {
 }
 // 转换后
 'use strict';
-function Example(name){
+function Example(name) {
   // 验证this的指向
-  if(!(this instanceof Example)){
+  if (!(this instanceof Example)) {
     throw new TypeError(
       `Class constructor Example cannot be invoked without 'new'`
     )
@@ -124,9 +124,9 @@ function Example(name){
   this.name = name
 }
 Object.defineProperty(Example.prototype, 'func', {
-  value: function(){
+  value: function () {
     // 不可通过new调用
-    if(!(this instanceof Example)){
+    if (!(this instanceof Example)) {
       throw new TypeError(
         `func is not a constructor`
       )
@@ -139,15 +139,15 @@ Object.defineProperty(Example.prototype, 'func', {
 // copy的禁用和解禁
 document.addEventListener('copy', (e) => {
   e.preventDefault();
-  e.clipboardData.setData('text/plain','不准复制，打钱！')
+  e.clipboardData.setData('text/plain', '不准复制，打钱！')
   console.log(e.target)
 })
 
 // 图片转base64
 const inp = document.querySelector('input');
-inp.onchange = function(){
+inp.onchange = function () {
   const reader = new FileReader();
-  reader.onload = function(e){
+  reader.onload = function (e) {
     console.log(e.target.result);  //base64
   }
   reader.readAsDataURL(this.files[0])
@@ -164,3 +164,22 @@ inp.onchange = function(){
 // const obj = new URL(`./assets/${name.value}.jpj`, import.meta.url);
 // return obj.pathname;
 // })
+
+
+// 简单实现instanceof:
+// function my_instanceof(L, R) {
+//   const O = R.prototype;
+//   if (L === null) {
+//     return false;
+//   }
+//   L = L.__proto__;
+//   while (true) {
+//     if (L === null) {
+//       return false;
+//     }
+//     if (L === O) {
+//       return true;
+//     }
+//     L = L.__proto__;
+//   }
+// }

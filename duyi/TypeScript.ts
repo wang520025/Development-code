@@ -19,3 +19,5 @@ function log<T>(x: BanDate<T, Date>){
     console.log(x)
 }
 // log(new Date())
+
+//@ts-ignore   ——跳过ts的类型校验

@@ -9,7 +9,7 @@
 DOM即文档对象模型，是W3C制定的标准接口规范，是一种处理HTML和XML文件的标准API。DOM提供了对整个文档的访问模型，将文档作为一个树形结构，树的每个结点表示了一个HTML标签或标签内的文本项。DOM树结构精确地描述了HTML文档中标签间的相互关联性。
 dom事件：JavaScript与HTML之间的交互是通过事件实现的。事件就是文档或浏览器窗口中发生的一些特定的交互瞬间。
 8.动态路由
-9.打包流程
+9.webpack的打包流程
 10.多环境
 11.在请求之外用到promise
 12.严格模式下和非严格模式下this指向
@@ -41,10 +41,24 @@ ie和ff都存在，相邻的两个div的margin-left和margin-right不会重合，但是margin-top和
 Object.prototype.proto = null。
 23.什么情况下不能用箭头函数
 24.keep-alive的原理
+	在 created钩子函数调用时将需要缓存的 VNode 节点保存在 this.cache 中／在 render（页面渲染） 时，如果 VNode 的 name 符合缓存条件（可以用 include 以及 exclude 控制），则会从 this.cache 中取出之前缓存的 VNode实例进行渲染。
 25.$nextTick的原理
-26.为啥template中一定要加div来包裹
+26.vue中为什么template有且只能有一个根元素
 27.中断请求怎么实现？
 28.页面加载过程中触发哪些事件
+页面加载时，大致可以分为以下几个步骤：
+
+1) 开始解析HTML文档结构
+2) 加载外部样式表及JavaScript脚本
+3) 解析执行JavaScript脚本
+4) DOM树渲染完成
+5) 加载未完成的外部资源
+6) 页面加载成功
+执行顺序:
+1) document readystatechange事件
+2) document DOMContentLoaded事件
+3) window load事件
+
 29.vue路由参数变化页面不刷新，path?id=
 30.微信小程序分包原理
 31.文件分片上传
